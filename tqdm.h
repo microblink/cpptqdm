@@ -37,7 +37,7 @@ class tqdm {
 
         void hsv_to_rgb(float h, float s, float v, int& r, int& g, int& b) {
             if (s < 1e-6) {
-                v *= 255.;
+                v *= 255.f;
                 r = static_cast< int >( v );
                 g = static_cast< int >( v );
                 b = static_cast< int >( v );
@@ -189,7 +189,7 @@ class tqdm {
                     }
                 }
                 for (int i = 0; i < ifills; i++) std::cout << bars[8];
-                if (curr != tot) printf("%s",bars[(int)(8.0*(fills-ifills))]);
+                if (curr != tot) printf("%s",bars[(std::size_t)(8.0*((int)fills-ifills))]);
                 for (int i = 0; i < width-ifills-1; i++) std::cout << bars[0];
                 printf("%s ", right_pad.c_str());
                 if (use_colors) printf("\033[1m\033[31m");
